@@ -25,7 +25,7 @@ I wanted a simple way to see where my money was going each month. This app lets 
 
 ## Folder Structure
 
-```
+
 expense-tracker/
 ├── client/              # React frontend
 │   └── src/
@@ -41,7 +41,7 @@ expense-tracker/
 │   ├── routes/expenses.js
 │   └── seed.js
 └── sample-data.json     # sample expenses for testing
-```
+
 
 ## How to Run
 
