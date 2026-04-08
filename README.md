@@ -1,131 +1,67 @@
 # Expense Tracker
 
-A full-stack single-page application for tracking personal expenses. Built with **React**, **Express**, and **MongoDB**.
+A web app to log and keep track of your personal spending. You can add expenses, edit them, delete them, and view a breakdown by category and month.
 
-## Features
+Built for COMP assignment 1.
 
-- **Add / Edit / Delete** expenses with title, category, amount, date, and description
-- **Filter** by category and date range; **sort** by date or amount
-- **Analytics dashboard** with:
-  - Bar chart — spending by category
-  - Donut chart — category breakdown percentage
-  - Line chart — monthly spending trend
-  - Category summary table with proportional progress bars
-- Live total in the sidebar
-- Instant in-app notifications for all actions
+## Problem
+
+I wanted a simple way to see where my money was going each month. This app lets you log expenses with a category, amount, and date, then see totals grouped by category or month on the analytics page.
 
 ## Tech Stack
 
-| Layer    | Technology            |
-|----------|-----------------------|
-| Frontend | React 18, Recharts, Vite |
-| Backend  | Node.js, Express 4    |
-| Database | MongoDB, Mongoose     |
+- **Frontend** — React (Vite)
+- **Styling** — Plain CSS (no component library)
+- **Backend** — Node.js + Express
+- **Database** — MongoDB (Mongoose)
 
-## Prerequisites
+## Features
 
-- [Node.js](https://nodejs.org/) v18+
-- [MongoDB](https://www.mongodb.com/try/download/community) running locally on port 27017  
-  *(or a MongoDB Atlas connection string)*
+- Add, edit, and delete expenses
+- Fields: title, category, amount, date, optional description
+- Filter expense list by category
+- Analytics page showing spending by category and monthly totals
+- Single-page app — no page reloads
 
-## Setup & Run
-
-### 1. Install dependencies
-
-```bash
-cd expense-tracker
-npm run install:all
-```
-
-### 2. Configure environment (optional)
-
-```bash
-cp server/.env.example server/.env
-# Edit server/.env if your MongoDB URI differs from the default
-```
-
-Default: `mongodb://localhost:27017/expense_tracker`
-
-### 3. Seed the database with sample data (optional)
-
-```bash
-npm run seed
-```
-
-### 4. Start both servers
-
-```bash
-npm run dev
-```
-
-This starts:
-- **Backend** → http://localhost:5000
-- **Frontend** → http://localhost:3000
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## Running separately
-
-```bash
-# Backend only
-npm run server
-
-# Frontend only
-npm run client
-```
-
-## API Endpoints
-
-| Method | Endpoint            | Description           |
-|--------|---------------------|-----------------------|
-| GET    | /api/expenses       | Fetch all expenses    |
-| GET    | /api/expenses/:id   | Fetch single expense  |
-| POST   | /api/expenses       | Create an expense     |
-| PUT    | /api/expenses/:id   | Update an expense     |
-| DELETE | /api/expenses/:id   | Delete an expense     |
-
-### Optional query parameters for GET /api/expenses
-
-| Parameter  | Example        | Description                  |
-|------------|----------------|------------------------------|
-| category   | `Food`         | Filter by category           |
-| startDate  | `2025-01-01`   | Expenses on or after date    |
-| endDate    | `2025-12-31`   | Expenses on or before date   |
-
-## Database Export
-
-`sample-data.json` contains 20 sample expense records that can be imported with:
-
-```bash
-mongoimport --db expense_tracker --collection expenses --array --file sample-data.json
-```
-
-Or use the seed script:
-
-```bash
-npm run seed
-```
-
-## Project Structure
+## Folder Structure
 
 ```
 expense-tracker/
-├── client/                  # React frontend (Vite)
-│   ├── index.html
+├── client/              # React frontend
 │   └── src/
-│       ├── App.jsx           # Root component, state & API calls
-│       ├── index.css         # All styles
+│       ├── App.jsx          # main component, handles state and API calls
+│       ├── index.css        # all styles
 │       └── components/
-│           ├── ExpenseForm.jsx   # Add/Edit modal
-│           ├── ExpenseList.jsx   # Table + filters
-│           └── Analytics.jsx    # Charts & summary
-├── server/                  # Express backend
-│   ├── server.js             # Entry point
-│   ├── models/Expense.js     # Mongoose schema
-│   ├── routes/expenses.js    # CRUD routes
-│   └── seed.js               # Sample data seeder
-├── sample-data.json          # Database export
-└── README.md
+│           ├── ExpenseForm.jsx   # add/edit modal
+│           ├── ExpenseList.jsx   # table with category filter
+│           └── Analytics.jsx    # category + monthly breakdown
+├── server/              # Express backend
+│   ├── server.js
+│   ├── models/Expense.js
+│   ├── routes/expenses.js
+│   └── seed.js
+└── sample-data.json     # sample expenses for testing
 ```
+
+## How to Run
+
+You need Node.js and MongoDB installed and running locally.
+
+```bash
+# install dependencies
+npm run install:all
+
+# (optional) load sample data
+npm run seed
+
+# start both servers
+npm run dev
+```
+
+Frontend runs on http://localhost:3000, backend on http://localhost:5000.
+
+If your MongoDB URI is different from the default, copy `server/.env.example` to `server/.env` and update it.
+
+## Challenges
+
+Getting the React state to stay in sync with the database took some trial and error — for example, making sure the expense list updated immediately after an add or delete without needing a full page refresh. I also ran into some issues with date formatting between MongoDB and the frontend date inputs, since MongoDB stores dates in UTC and the input field expects a `YYYY-MM-DD` string. The modal form also needed to correctly pre-fill when editing an existing expense, which required a `useEffect` that watches the passed-in expense prop.
