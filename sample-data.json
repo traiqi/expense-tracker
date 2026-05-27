@@ -1,0 +1,22 @@
+[
+  { "title": "Weekly groceries",    "category": "Food",          "amount": 87.50,  "date": "2025-12-02", "description": "Supermarket run" },
+  { "title": "Monthly rent",        "category": "Housing",       "amount": 1500.00,"date": "2025-12-01", "description": "December rent payment" },
+  { "title": "Netflix subscription","category": "Entertainment", "amount": 15.99,  "date": "2025-12-05", "description": "" },
+  { "title": "Bus pass",            "category": "Transport",     "amount": 45.00,  "date": "2025-12-03", "description": "Monthly transit pass" },
+  { "title": "Doctor visit",        "category": "Healthcare",    "amount": 120.00, "date": "2025-12-07", "description": "Annual check-up co-pay" },
+  { "title": "Online course",       "category": "Education",     "amount": 29.99,  "date": "2025-12-10", "description": "React advanced course" },
+  { "title": "Dinner out",          "category": "Food",          "amount": 62.40,  "date": "2025-12-14", "description": "Birthday dinner" },
+  { "title": "New shoes",           "category": "Shopping",      "amount": 89.95,  "date": "2025-12-08", "description": "Running shoes" },
+  { "title": "Electricity bill",    "category": "Housing",       "amount": 98.20,  "date": "2025-11-28", "description": "" },
+  { "title": "Coffee & snacks",     "category": "Food",          "amount": 18.50,  "date": "2025-11-30", "description": "Daily coffee habit" },
+  { "title": "Uber rides",          "category": "Transport",     "amount": 34.60,  "date": "2025-11-25", "description": "Weekend trips" },
+  { "title": "Spotify",             "category": "Entertainment", "amount": 9.99,   "date": "2025-11-20", "description": "" },
+  { "title": "Gym membership",      "category": "Healthcare",    "amount": 55.00,  "date": "2025-11-01", "description": "Monthly gym fee" },
+  { "title": "Textbooks",           "category": "Education",     "amount": 145.00, "date": "2025-10-15", "description": "Semester textbooks" },
+  { "title": "Groceries",           "category": "Food",          "amount": 72.30,  "date": "2025-10-20", "description": "" },
+  { "title": "Internet bill",       "category": "Housing",       "amount": 59.99,  "date": "2025-10-01", "description": "Monthly internet" },
+  { "title": "Movie tickets",       "category": "Entertainment", "amount": 28.00,  "date": "2025-10-12", "description": "2 tickets + popcorn" },
+  { "title": "Clothing",            "category": "Shopping",      "amount": 134.50, "date": "2025-10-18", "description": "Winter wardrobe" },
+  { "title": "Petrol",              "category": "Transport",     "amount": 60.00,  "date": "2025-09-22", "description": "Full tank" },
+  { "title": "Miscellaneous",       "category": "Others",        "amount": 22.00,  "date": "2025-09-10", "description": "Various small purchases" }
+]
